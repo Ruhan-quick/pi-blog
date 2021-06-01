@@ -34,8 +34,6 @@ const BlogForm = () => {
     newBlog.authorName = document.getElementById("authorName").value;
     newBlog.category = document.getElementById("category").value;
     setBlog(newBlog);
-    //console.log("xx", blog);
-
     postNow();
   };
 
