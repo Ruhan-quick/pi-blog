@@ -26,7 +26,8 @@ const BlogForm = () => {
     //console.log(blog);
   };
 
-  const onPost = () => {
+  const onPost = (e) => {
+    e.preventDefault();
     const newBlog = { ...blog };
     newBlog.title = document.getElementById("title").value;
     newBlog.subTitle = document.getElementById("subTitle").value;
@@ -34,6 +35,7 @@ const BlogForm = () => {
     newBlog.authorName = document.getElementById("authorName").value;
     newBlog.category = document.getElementById("category").value;
     setBlog(newBlog);
+    console.log(blog);
     postNow();
   };
 
@@ -78,7 +80,7 @@ const BlogForm = () => {
             <Form.Label>Title</Form.Label>
             <Form.Control
               id="title"
-              onBlur={handleBlur}
+              onChange={handleBlur}
               required
               type="text"
               placeholder="Enter Title"
@@ -88,7 +90,7 @@ const BlogForm = () => {
           <Form.Group as={Col}>
             <Form.Label>Subtitle</Form.Label>
             <Form.Control
-              onBlur={handleBlur}
+              onChange={handleBlur}
               id="subTitle"
               type="text"
               placeholder="Subtitle"
@@ -99,7 +101,7 @@ const BlogForm = () => {
         <Form.Group>
           <Form.Label>Blog</Form.Label>
           <Form.Control
-            onBlur={handleBlur}
+            onChange={handleBlur}
             id="article"
             required
             as="textarea"
@@ -110,7 +112,7 @@ const BlogForm = () => {
         <Form.Group>
           <Form.Label>Tags</Form.Label>
           <Form.Control
-            onBlur={handleBlur}
+            onChange={handleBlur}
             id="tags"
             placeholder="Apartment, studio, or floor"
           />
@@ -119,12 +121,12 @@ const BlogForm = () => {
         <Form.Row>
           <Form.Group as={Col}>
             <Form.Label>Author Name</Form.Label>
-            <Form.Control onBlur={handleBlur} id="authorName" />
+            <Form.Control onChange={handleBlur} id="authorName" />
           </Form.Group>
 
           <Form.Group as={Col}>
             <Form.Label>Category</Form.Label>
-            <Form.Control onBlur={handleBlur} id="category" as="select">
+            <Form.Control onChange={handleBlur} id="category" as="select">
               <option>Select..</option>
               <option>All</option>
               <option>News</option>
@@ -148,7 +150,13 @@ const BlogForm = () => {
           />
         </Form.Group> */}
 
-        <Button onClick={onPost} variant="primary" type="submit">
+        <Button
+          onClick={(e) => {
+            onPost(e);
+          }}
+          variant="primary"
+          type="submit"
+        >
           Post
         </Button>
       </Form>
