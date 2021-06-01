@@ -40,7 +40,7 @@ const BlogForm = () => {
   };
 
   const postNow = () => {
-    fetch("http://localhost:5055/addBlog", {
+    fetch("https://guarded-stream-40071.herokuapp.com/addBlog", {
       method: "POST",
       headers: {
         "content-type": "application/json",

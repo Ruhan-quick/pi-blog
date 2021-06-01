@@ -12,7 +12,7 @@ const AllArticles = () => {
   const [postsPerPage, setPostPerPage] = useState(3);
 
   useEffect(() => {
-    fetch("http://localhost:5055/showBlogs")
+    fetch("https://guarded-stream-40071.herokuapp.com/showBlogs")
       .then((res) => res.json())
       .then((data) => setAllBlogs(data));
   }, []);
